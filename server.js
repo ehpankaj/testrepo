@@ -6,9 +6,8 @@ const publicDirPath = path.join(__dirname, './public')
 
 app.use(express.static(publicDirPath, {extensions: ['html']}))
 
-app.get('/js/app.js',(req,res) => {
-    console.log(req.query);
-    res.send([{name: 'dsff', age: 'fdsfdsfds'},{name: 'dsff', age: 'fdsfdsfds'},{name: 'dsff', age: 'fdsfdsfds'},{name: 'dsff', age: 'fdsfdsfds'}]); 
+app.get('/js/app.js',function(req,res){
+    res.sendFile(path.join(__dirname + '/src/app.js')); 
 });
 
 app.listen(3000, () => {
